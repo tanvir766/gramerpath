@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Color Emoji', sans-serif;
+    --font-bengali: 'Hind Siliguri', 'Inter', -apple-system, 'Noto Color Emoji', sans-serif;
+    --font-classical: 'Lora', Georgia, 'Times New Roman', serif;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: rgba(30, 130, 230, 0.12);
+  }
+
+  body {
+    font-family: var(--font-inter);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Classical editorial serif for headings */
+  .font-classical {
+    font-family: var(--font-classical);
+    letter-spacing: -0.015em;
+  }
+
+  /* Bengali text typography enhancement */
+  .font-bn {
+    font-family: var(--font-bengali);
+    line-height: 1.7;
+  }
+
+  /* Accessible keyboard focus indicator across all controls */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid #1E82E6;
+    outline-offset: 2px;
+  }
+}
+
+/* Smooth GPU-composited micro-transitions */
+@keyframes gpFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gp-page-enter {
+  animation: gpFadeUp 200ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.pb-safe {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

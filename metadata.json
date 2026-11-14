@@ -1,0 +1,6 @@
+{
+  "name": "GrammarPath",
+  "description": "Comprehensive English Grammar Learning Platform designed for Bengali-speaking students to learn English grammar from absolute zero with interactive practice, quizzes, and learning dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
